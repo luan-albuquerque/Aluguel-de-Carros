@@ -13,7 +13,7 @@ const createUserController = new CreateUserController();
 const updateUserController = new UpdateUserAvatarController();
 
 // utilizando configuração dinamica do multer
-const upload = multer(uploadConfig.upload("./tmp/avatar"));
+const upload = multer(uploadConfig);
 
 // nome do arquivo, que vai ser recebido no single
 UsersRoutes.patch(
