@@ -24,15 +24,16 @@ class UpdateUserAvatarUseCase {
   ) {}
 
   async execute({ user_id, avatarFile }: iRequest): Promise<void> {
-    const user = await this.repository.findById(user_id);
-
-    await this.storage.save(user.avatar, "avatar")
+    const user = await this.repository.findById(user_id);    
 
     // verificando se já existe avatar
     if (user.avatar) {
       // await deleteFile(`./tmp/avatar/${user.avatar}`);
       await this.storage.delete(user.avatar, "avatar")
     }
+
+    await this.storage.save(avatarFile, "avatar")
+
 
     user.avatar = avatarFile;
 
