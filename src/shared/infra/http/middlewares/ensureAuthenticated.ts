@@ -23,8 +23,9 @@ export async function ensureAuthenticated(
 
   // separando o beader do token
   const [_, token] = authHeader.split(" ");
+    
 
-  try {
+  // try {
     //   Recebendo o sub do token (id de usuario)
     const { sub: user_id } = verify(
       token,
@@ -47,12 +48,12 @@ export async function ensureAuthenticated(
 
     // inserindo usuario na requisição
     request.user = {
-      id: user.id,
+      id: user.user_id,
     };
 
     // se exister, seguir aplicação
     next();
-  } catch (error) {
-    throw new AppError("Invalid Token", 401);
-  }
+  // } catch (error) {
+  //   throw new AppError("Invalid Token", 401);
+  // }
 }
