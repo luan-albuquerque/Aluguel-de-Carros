@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rentx Api",
+    "description": "Api criada na trilha de Node da rocketseat",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/categories": {
+      "get": {
+        "tags": ["Categories"],
+        "summary": "Busca uma lista de categorias",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "Date"
+                    }
+                  },
+                  "example": [
+                    {
+                      "id": "17f1f03b-3cb8-44d1-93b3-7bb045b36481",
+                      "name": "SUV",
+                      "description": "Carro bundudo",
+                      "created_at": "2021-11-18T14:53:46.621Z"
+                    },
+                    {
+                      "id": "4109ce72-bbf9-41bd-964b-9ae9f7c78dcf",
+                      "name": "Sedan",
+                      "description": " Carro com bunda",
+                      "created_at": "2021-11-18T14:53:55.902Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Categories"],
+        "summary": "Cria uma nova categoria",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "nome da categoria",
+                  "description": "descrição da categoria"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Specification already exists"
+          }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Categories"],
+        "summary": "Importa um arquivo e adiciona dados no cinema",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "get": {
+        "tags": ["Specifications"],
+        "summary": "Buscata uma lista de especificações",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Cria uma nova especificação",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Specification already exists"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
