@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\henrique.santos\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/mimes
+  C:\Program Files\nodejs\node.exe C:\Users\henrique.santos\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @babel/cli @babel/core @babel/node @babel/plugin-proposal-class-properties @babel/babel-plugin-proposal-decorators @babel/preset-env babel-plugin-module-resolver babel-plugin-transform-typescript-metadata -D
 
 PATH: 
-  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Kaspersky Lab\Kaspersky Endpoint Security for Windows\;C:\Program Files (x86)\Kaspersky Lab\Endpoint Agent\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\erl10.7\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\Elixir\bin;C:\Windows\system32\config\systemprofile\.mix\escripts;C:\Program Files\nodejs\;C:\Program Files\Go\bin;C:\Users\henrique.santos\AppData\Local\Programs\Python\Launcher\;C:\Users\henrique.santos\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2021.3\bin;C:\Users\henrique.santos\AppData\Roaming\npm;C:\Users\henrique.santos\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\henrique.santos\go\bin;C:\Users\henrique.santos\AppData\Local\atom\bin;C:\Program Files (x86)\Nmap
+  C:\Users\henrique.santos\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\henrique.santos\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python39\Scripts;C:\Program Files\Python39;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\Kaspersky Lab\Kaspersky Endpoint Security for Windows;C:\Program Files (x86)\Kaspersky Lab\Endpoint Agent;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\Program Files\erl10.7\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\Elixir\bin;C:\Windows\system32\config\systemprofile\.mix\escripts;C:\Program Files\nodejs;C:\Program Files\Go\bin;C:\Users\henrique.santos\AppData\Local\Programs\Python\Launcher;C:\Users\henrique.santos\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2021.3\bin;C:\Users\henrique.santos\AppData\Roaming\npm;C:\Users\henrique.santos\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\henrique.santos\go\bin;C:\Users\henrique.santos\AppData\Local\atom\bin;C:\Program Files (x86)\Nmap;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.17
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fmimes: Not found
+  Error: https://registry.yarnpkg.com/@babel%2fbabel-plugin-proposal-decorators: Not found
       at Request.params.callback [as _callback] (C:\Users\henrique.santos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
       at Request.self.callback (C:\Users\henrique.santos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
       at Request.emit (node:events:390:28)
@@ -39,6 +39,7 @@ npm manifest:
       "bcryptjs": "^2.4.3",
       "csv-parse": "^5.0.1",
       "dayjs": "^1.10.7",
+      "dotenv": "^16.0.3",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
       "handlebars": "^4.7.7",
@@ -1594,6 +1595,11 @@ Lockfile:
     integrity sha512-yxJ2mFy/sibVQlu5qHjOkf9J3K6zgmCxgJ94u2EdvDOV09H+32LtRswEcUsmUWN72pVLOEnTSRaIVVzVQgS0dg==
     dependencies:
       webidl-conversions "^5.0.0"
+  
+  dotenv@^16.0.3:
+    version "16.0.3"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
+    integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
   
   dotenv@^8.2.0:
     version "8.6.0"
