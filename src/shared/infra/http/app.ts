@@ -8,6 +8,7 @@ import swaggerUi from "swagger-ui-express";
 import swaggerOptions from "../../../swagger.json";
 import { routes } from "@shared/infra/http/routes";
 import { AppError } from "@shared/errors/AppError";
+import upload from "@config/upload";
 
 createConnection(); // banco
 
@@ -17,6 +18,9 @@ app.use(express.json());
 
 // Rota do swagger
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
+
+app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`))
+app.use("/cars", express.static(`${upload.tmpFolder}/cars`))
 
 app.use(routes);
 
