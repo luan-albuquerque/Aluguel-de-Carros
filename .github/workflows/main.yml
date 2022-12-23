@@ -17,9 +17,6 @@ jobs:
        with:
         node-version: 16.x
         
-     - name: Install Dependecies
-       run: npm install
-       
      - name: Build
        run: npm build  
       
