@@ -18,7 +18,10 @@ jobs:
         node-version: 16.x
         
      - name: Install Dependecies
-       run: npm install  
+       run: npm install
+       
+     - name: Build
+       run: npm build  
       
      - uses: appleboy/scp-action@master
        with:
@@ -26,6 +29,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        source: "tests/a.txt,tests/b.txt"
+        source: ". , !node_modules"
         target: "test"
   
