@@ -33,7 +33,7 @@ jobs:
         target: "test"
         
      - name: Update API   
-     - uses: appleboy/shh-action@master
+       uses: appleboy/shh-action@master
        with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
