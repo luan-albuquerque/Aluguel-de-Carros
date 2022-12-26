@@ -40,8 +40,6 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
         script:
-         cd /home/app/test
-         yarn
          pm2 restart server
          
          
