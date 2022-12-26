@@ -10,12 +10,34 @@ import swaggerOptions from "../../../swagger.json";
 import { routes } from "@shared/infra/http/routes";
 import { AppError } from "@shared/errors/AppError";
 import upload from "@config/upload";
+import * as Sentry from "@sentry/node";
+import * as Tracing from "@sentry/tracing";
+
 
 createConnection(); // banco
 
 const app = express();
+
 app.use(raterLimiter)
 
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  integrations: [
+    // enable HTTP calls tracing
+    new Sentry.Integrations.Http({ tracing: true }),
+    // enable Express.js middleware tracing
+    new Tracing.Integrations.Express({ app }),
+  ],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
+
+app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.Handlers.tracingHandler());
 app.use(express.json());
 
 // Rota do swagger
@@ -25,6 +47,8 @@ app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`))
 app.use("/cars", express.static(`${upload.tmpFolder}/cars`))
 
 app.use(routes);
+
+app.use(Sentry.Handlers.errorHandler());
 
 // Middleware de controle derros
 app.use(
