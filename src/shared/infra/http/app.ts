@@ -4,6 +4,7 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors"; // lib para identificação de exceções (throw new ...) nas rotas
 import "../../container";
 import createConnection from "@shared/infra/typeorm";
+import raterLimiter from "@shared/infra/http/middlewares/raterLimiter"
 import swaggerUi from "swagger-ui-express";
 import swaggerOptions from "../../../swagger.json";
 import { routes } from "@shared/infra/http/routes";
@@ -13,6 +14,7 @@ import upload from "@config/upload";
 createConnection(); // banco
 
 const app = express();
+app.use(raterLimiter)
 
 app.use(express.json());
 
