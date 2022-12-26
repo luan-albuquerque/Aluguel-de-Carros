@@ -5,6 +5,8 @@
   "author": "Luan Santos <luan.santos6605@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@sentry/node": "^7.28.1",
+    "@sentry/tracing": "^7.28.1",
     "@types/handlebars": "^4.1.0",
     "@types/ioredis": "^5.0.0",
     "@types/redis": "^4.0.11",
