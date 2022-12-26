@@ -42,7 +42,6 @@ jobs:
         script:
          cd /home/app/test
          npm install
-         ./node_modules/.bin/typeorm migration:run
          pm2 restart server
          
          
